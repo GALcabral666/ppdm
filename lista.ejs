@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+    <% include partials/menu %>
+
+    <h1>Lista de Usuários</h1>
+
+    
+    <form action="/pesquisar" method="get">
+        <input type="text" name="email" placeholder="Digite o e-mail para buscar">
+        <button type="submit">Pesquisar</button>
+    </form>
+
+    <ul>
+        <% if (usuarios.length > 0) { %>
+            <% usuarios.forEach(function(email) { %>
+                <li><a href="/usuarios/<%= email %>"><%= email %></a></li>
+            <% }) %>
+        <% } else { %>
+            <li>Nenhum usuário cadastrado.</li>
+        <% } %>
+    </ul>
+</body>
+</html>
